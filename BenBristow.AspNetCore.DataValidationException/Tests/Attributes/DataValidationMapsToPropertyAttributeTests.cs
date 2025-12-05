@@ -3,7 +3,7 @@ using Shouldly;
 
 namespace BenBristow.AspNetCore.DataValidationException.Tests.Attributes;
 
-public class MapsToPropertyAttributeTests
+public class DataValidationMapsToPropertyAttributeTests
 {
     [Fact]
     public void Constructor_WithDomainPropertyName_ShouldSetProperty()
@@ -12,7 +12,7 @@ public class MapsToPropertyAttributeTests
         const string domainPropertyName = "DomainName";
 
         // Act
-        var attribute = new MapsToPropertyAttribute(domainPropertyName);
+        var attribute = new DataValidationMapsToPropertyAttribute(domainPropertyName);
 
         // Assert
         attribute.DomainPropertyName.ShouldBe(domainPropertyName);
@@ -25,7 +25,7 @@ public class MapsToPropertyAttributeTests
         const string domainPropertyName = "";
 
         // Act
-        var attribute = new MapsToPropertyAttribute(domainPropertyName);
+        var attribute = new DataValidationMapsToPropertyAttribute(domainPropertyName);
 
         // Assert
         attribute.DomainPropertyName.ShouldBe(string.Empty);
@@ -35,7 +35,7 @@ public class MapsToPropertyAttributeTests
     public void Attribute_ShouldBeApplicableToPropertiesOnly()
     {
         // Arrange & Act
-        var attributeUsage = typeof(MapsToPropertyAttribute)
+        var attributeUsage = typeof(DataValidationMapsToPropertyAttribute)
             .GetCustomAttributes(typeof(AttributeUsageAttribute), false)
             .Cast<AttributeUsageAttribute>()
             .FirstOrDefault();
@@ -49,7 +49,7 @@ public class MapsToPropertyAttributeTests
     public void Attribute_ShouldNotAllowMultiple()
     {
         // Arrange & Act
-        var attributeUsage = typeof(MapsToPropertyAttribute)
+        var attributeUsage = typeof(DataValidationMapsToPropertyAttribute)
             .GetCustomAttributes(typeof(AttributeUsageAttribute), false)
             .Cast<AttributeUsageAttribute>()
             .FirstOrDefault();
@@ -59,4 +59,3 @@ public class MapsToPropertyAttributeTests
         attributeUsage.AllowMultiple.ShouldBeFalse();
     }
 }
-

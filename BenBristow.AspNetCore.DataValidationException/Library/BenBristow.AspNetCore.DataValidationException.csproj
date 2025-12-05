@@ -5,11 +5,11 @@
         <Nullable>enable</Nullable>
         <IsPackable>true</IsPackable>
         <PackageId>BenBristow.AspNetCore.DataValidationException</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.1.0</Version>
         <Authors>Ben Bristow</Authors>
         <Description>A library for handling data validation exceptions in ASP.NET Core, with support for mapping domain properties to model properties.</Description>
         <PackageTags>aspnetcore validation exception</PackageTags>
-        <RepositoryUrl>https://github.com/benbristow/BenBristow.AspNetCore.DataValidationException</RepositoryUrl>
+        <RepositoryUrl>https://github.com/benbristow/AspNetCore/tree/main/BenBristow.AspNetCore.DataValidationException</RepositoryUrl>
         <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>

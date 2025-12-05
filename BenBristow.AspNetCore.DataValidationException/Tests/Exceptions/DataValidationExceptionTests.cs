@@ -183,7 +183,7 @@ public class DataValidationExceptionTests
 
     private class TestModelWithMapping
     {
-        [MapsToProperty("DomainName")]
+        [DataValidationMapsToProperty("DomainName")]
         public string MappedName { get; set; } = string.Empty;
     }
 

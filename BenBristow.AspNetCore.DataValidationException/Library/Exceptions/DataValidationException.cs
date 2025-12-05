@@ -39,7 +39,7 @@ namespace BenBristow.AspNetCore.DataValidationException.Exceptions
 
         /// <summary>
         /// Adds the validation errors from this exception to the specified <see cref="ModelStateDictionary"/> for a given type,
-        /// using property mappings defined by <see cref="MapsToPropertyAttribute"/> if available.
+        /// using property mappings defined by <see cref="BenBristow.AspNetCore.DataValidationException.Attributes.DataValidationMapsToPropertyAttribute"/> if available.
         /// </summary>
         /// <typeparam name="T">The type to which the errors are mapped.</typeparam>
         /// <param name="modelState">The <see cref="ModelStateDictionary"/> to add errors to.</param>
@@ -59,7 +59,7 @@ namespace BenBristow.AspNetCore.DataValidationException.Exceptions
 
         /// <summary>
         /// Builds a dictionary of property mappings from domain property names to actual property names
-        /// based on <see cref="MapsToPropertyAttribute"/> attributes on the properties of type <typeparamref name="T"/>.
+        /// based on <see cref="BenBristow.AspNetCore.DataValidationException.Attributes.DataValidationMapsToPropertyAttribute"/> attributes on the properties of type <typeparamref name="T"/>.
         /// </summary>
         /// <typeparam name="T">The type to inspect for property mappings.</typeparam>
         /// <returns>A dictionary where keys are domain property names and values are actual property names.</returns>
@@ -69,7 +69,7 @@ namespace BenBristow.AspNetCore.DataValidationException.Exceptions
         
             foreach (var property in typeof(T).GetProperties())
             {
-                var attribute = property.GetCustomAttribute<MapsToPropertyAttribute>();
+                var attribute = property.GetCustomAttribute<DataValidationMapsToPropertyAttribute>();
                 if (attribute != null)
                     mappings[attribute.DomainPropertyName] = property.Name;
             }

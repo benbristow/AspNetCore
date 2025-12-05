@@ -14,7 +14,7 @@ dotnet add package BenBristow.AspNetCore.DataValidationException
 
 - **DataValidationException**: A custom exception for capturing validation errors with property-level granularity
 - **DataValidationExceptionFactory**: A fluent builder for constructing validation exceptions
-- **MapsToPropertyAttribute**: Map domain property names to model property names for seamless error mapping
+- **DataValidationMapsToPropertyAttribute**: Map domain property names to model property names for seamless error mapping
 - **ModelState Integration**: Automatically add validation errors to ASP.NET Core ModelState
 
 ## Usage
@@ -62,17 +62,17 @@ throw factory.Create();
 
 ### Mapping Domain Properties to Model Properties
 
-When your domain model uses different property names than your API models, use the `MapsToPropertyAttribute` to ensure errors are mapped correctly:
+When your domain model uses different property names than your API models, use the `DataValidationMapsToPropertyAttribute` to ensure errors are mapped correctly:
 
 ```csharp
 using BenBristow.AspNetCore.DataValidationException.Attributes;
 
 public class UserApiModel
 {
-    [MapsToProperty("EmailAddress")]  // Maps to domain property "EmailAddress"
+    [DataValidationMapsToProperty("EmailAddress")]  // Maps to domain property "EmailAddress"
     public string Email { get; set; }
     
-    [MapsToProperty("UserPassword")]  // Maps to domain property "UserPassword"
+    [DataValidationMapsToProperty("UserPassword")]  // Maps to domain property "UserPassword"
     public string Password { get; set; }
 }
 ```
@@ -109,7 +109,7 @@ public class UsersController : ControllerBase
 ```
 
 The `AddToModelState<T>` method will automatically:
-1. Map domain property names to model property names using `MapsToPropertyAttribute`
+1. Map domain property names to model property names using `DataValidationMapsToPropertyAttribute`
 2. Add all validation errors to the ModelState
 3. Preserve property names for unmapped properties
 
@@ -139,10 +139,10 @@ public class UserService
 // API Model
 public class UserApiModel
 {
-    [MapsToProperty("EmailAddress")]
+    [DataValidationMapsToProperty("EmailAddress")]
     public string Email { get; set; }
     
-    [MapsToProperty("UserPassword")]
+    [DataValidationMapsToProperty("UserPassword")]
     public string Password { get; set; }
 }
 

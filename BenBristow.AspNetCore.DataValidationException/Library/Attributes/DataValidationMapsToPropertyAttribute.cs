@@ -6,13 +6,13 @@ namespace BenBristow.AspNetCore.DataValidationException.Attributes
     /// Attribute to map a property to a domain property name.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public sealed class MapsToPropertyAttribute : Attribute
+    public class DataValidationMapsToPropertyAttribute : Attribute
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MapsToPropertyAttribute"/> class.
+        /// Initializes a new instance of the <see cref="BenBristow.AspNetCore.DataValidationException.Attributes.DataValidationMapsToPropertyAttribute"/> class.
         /// </summary>
         /// <param name="domainPropertyName">The name of the domain property to map to.</param>
-        public MapsToPropertyAttribute(string domainPropertyName)
+        public DataValidationMapsToPropertyAttribute(string domainPropertyName)
         {
             DomainPropertyName = domainPropertyName;
         }
